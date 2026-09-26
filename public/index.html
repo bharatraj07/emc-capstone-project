@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ops Task Tracker</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Ops Task Tracker</h1>
+      <p class="subtitle">Deployed via Jenkins &rarr; Docker Hub &rarr; EC2 &middot; monitored by Prometheus &amp; Grafana</p>
+    </header>
+
+    <section class="card">
+      <form id="task-form">
+        <input id="title" type="text" placeholder="e.g. Rotate DB credentials" required />
+        <select id="priority">
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+        <button type="submit">Add Task</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="status-row">
+        <span id="health-dot" class="dot"></span>
+        <span id="health-text">Checking API health…</span>
+        <span class="spacer"></span>
+        <span id="count-text"></span>
+      </div>
+      <ul id="task-list"></ul>
+    </section>
+
+    <footer>
+      <a href="/metrics" target="_blank">/metrics</a> &middot;
+      <a href="/health" target="_blank">/health</a>
+    </footer>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
